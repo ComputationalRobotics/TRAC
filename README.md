@@ -1,4 +1,4 @@
-# Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning NeurIPS' 24 Code Submission
+# Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning
 
 This repository is the official implementation of PACE in ***Pick Up the PACE:
 A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
