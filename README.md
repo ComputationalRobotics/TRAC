@@ -1,3 +1,4 @@
+#PACE: Parameter-Free Adapation to Continual Environments
 This repository is the official implementation of **PACE** in ***Pick Up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
 
 How can you *quickly* adapt to new tasks or distribution shifts in RL? Without knowing when or how difficult adaption will it be? And how to adapt without *ANY* tuning?
