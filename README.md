@@ -1,5 +1,5 @@
-#PACE: Parameter-Free Adapation to Continual Environments
-This repository is the official implementation of **PACE** in ***Pick Up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
+# PACE: Rapid Parameter-free Optimization ⚡️
+This repository is the official implementation of the **PACE** optimizer in ***Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
 
 How can you *quickly* adapt to new tasks or distribution shifts in RL? Without knowing when or how difficult adaption will it be? And how to adapt without *ANY* tuning?
 
@@ -7,6 +7,7 @@ Well, we suggest you go fast. Go ahead and pick up (the) ''PACE.''
 
 PACE is a parameter-free optimizer for continual environments inspired by [online convex optimization](https://arxiv.org/abs/1912.13213) and [discounted adaptive online learning](https://arxiv.org/abs/2402.02720).
 
+## Implement with only one line change.
 Like other [meta-tuners](https://openreview.net/pdf?id=uhKtQMn21D), PACE can work with any of your continual, fine-tuning, or lifelong experiments with just one line change.
 
 ```python
@@ -31,7 +32,7 @@ pip install -r requirements.txt
 
 We recommend running ``main.ipynb`` in Google Colab. This approach requires no setup, making it easy to get started with our control experiments.
 
-![Control Experiment](path_to_your_image)
+![Control Experiment](figures/control.png)
 
 ## Vision-based RL Experiments
 
