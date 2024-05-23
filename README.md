@@ -1,4 +1,4 @@
-# PACE: Rapid Parameter-free Optimization ⚡️
+# PACE: Rapid, Adaptive, Parameter-free Optimization ⚡️
 This repository is the official implementation of the **PACE** optimizer in ***Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
 
 **How can you _quickly_ adapt to new tasks or distribution shifts? Without knowing when or how difficult adaptation will be? And how to adapt without _ANY_ tuning?** 
