@@ -1,12 +1,12 @@
 # PACE: Adaptive Parameter-free Optimization ⚡️
 This repository is the official implementation of the **PACE** optimizer in ***Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
 
-**How can you _quickly_ adapt to new tasks or distribution shifts? Without knowing when or how difficult adaptation will be? And how to adapt without _ANY_ tuning?** 
+How can you _quickly_ adapt to new tasks or distribution shifts? Without knowing when or how difficult adaptation will be? And how to adapt without _ANY_ tuning? 
  🤔💭
 
-Well, we suggest you go fast. 🏎️💨 Go ahead and pick up (the) **_PACE_**.
+Well, we suggest you go fast. 🏎️💨 Go ahead and pick up (the) **PACE**.
 
-PACE is a parameter-free optimizer for continual environments inspired by [online convex optimization](https://arxiv.org/abs/1912.13213) and [discounted adaptive online learning](https://arxiv.org/abs/2402.02720).
+**PACE** is a parameter-free optimizer for continual environments inspired by [online convex optimization](https://arxiv.org/abs/1912.13213) and [discounted adaptive online learning](https://arxiv.org/abs/2402.02720).
 
 ## Implement with only one line change.
 Like other [meta-tuners](https://openreview.net/pdf?id=uhKtQMn21D), PACE can work with any of your continual, fine-tuning, or lifelong experiments with just one line change.
