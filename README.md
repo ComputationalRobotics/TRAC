@@ -23,13 +23,11 @@ After this modification, you can continue using your optimizer methods exactly a
 
 ## Control Experiments
 
-We recommend running ``main.ipynb`` in Google Colab. This approach requires no setup, making it easy to get started with our control experiments. If you run locally, to install the necessary dependencies, simply run:
+We recommend running ``main.ipynb`` in Google Colab. This approach requires no setup, making it easy to get started with our control experiments. If you run locally, to install the necessary dependencies, simply:
 
 ```setup
 pip install -r requirements.txt
 ```
-Then you can go through ``main.ipynb``.
-
 ![Control Experiment](figures/control.png)
 
 ## Vision-based RL Experiments
