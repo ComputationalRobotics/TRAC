@@ -35,7 +35,7 @@ pip install -r requirements.txt
 Coming soon ➡️
 
 <p align="center">
-  <img src="figures/game1.gif" alt="Game 1" width="30%">
-  <img src="figures/game2.gif" alt="Game 2" width="30%">
-  <img src="figures/game3.gif" alt="Game 3" width="30%">
+  <img src="figures/games1.gif" alt="Game 1" width="30%">
+  <img src="figures/games2.gif" alt="Game 2" width="30%">
+  <img src="figures/games3.gif" alt="Game 3" width="30%">
 </p>
