@@ -21,17 +21,14 @@ optimizer = start_pace(log_file='logs/pace.text', optimizer)(model.parameters(),
 
 After this modification, you can continue using your optimizer methods exactly as you did before. Whether it's calling `optimizer.step()` to update your model's parameters or `optimizer.zero_grad()` to clear gradients, everything stays the same. PACE seamlessly integrates into your existing workflow without any additional overhead.
 
-## Requirements
+## Control Experiments
 
-To install the necessary dependencies, simply run:
+We recommend running ``main.ipynb`` in Google Colab. This approach requires no setup, making it easy to get started with our control experiments. If you run locally, to install the necessary dependencies, simply run:
 
 ```setup
 pip install -r requirements.txt
 ```
-
-## Control Experiments
-
-We recommend running ``main.ipynb`` in Google Colab. This approach requires no setup, making it easy to get started with our control experiments.
+Then you can go through ``main.ipynb``.
 
 ![Control Experiment](figures/control.png)
 
