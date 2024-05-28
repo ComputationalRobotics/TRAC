@@ -1,4 +1,6 @@
 # PACE: Adaptive Parameter-free Optimization ⚡️
+[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642)
+
 This repository is the official implementation of the **PACE** optimizer in ***Pick up the PACE: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
 
 How can you _quickly_ adapt to new tasks or distribution shifts? Without knowing when or how much to adapt? And without _ANY_ tuning? 
