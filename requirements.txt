@@ -4,3 +4,4 @@ seaborn
 tqdm
 gym[box2d]
 swig
+procgen
