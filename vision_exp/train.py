@@ -1,3 +1,5 @@
+# Adapted from https://github.com/joonleesky/train-procgen-pytorch
+
 from common.env.procgen_wrappers import *
 from common.env.atari_wrappers import *
 from common.logger import Logger

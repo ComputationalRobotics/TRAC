@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 Our vision-based experiments are hosted in the `vision_exp` directory, which is based off [this Procgen Pytorch implementation](https://github.com/joonleesky/train-procgen-pytorch). These experiments allow exploration of different gaming environments using the **PACE** optimizer for adaptive learning.
 
-To initiate an experiment with the default configuration in the Procgen "starpilot" environment, use the command below. You can easily switch to other game environments, like Atari, by altering the `--exp_name="Atari"` parameter:
+To initiate an experiment with the default configuration in the Procgen "starpilot" environment, use the command below. You can easily switch to other game environments, like Atari, by altering the `--exp_name="atari"` parameter:
 
 ```bash
 python vision_exp/train.py --exp_name="procgen" --env_name="starpilot" --optimizer="pace" --warmstart_step=0
