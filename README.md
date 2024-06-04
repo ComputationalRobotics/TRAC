@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## Vision-based RL Experiments
 
-Our vision-based experiments are hosted in the `vision_exp` directory, which is based off [this Procgen Pytorch implementation](https://github.com/joonleesky/train-procgen-pytorch). These experiments allow exploration of Procgen and Atari environments using **PACE**.
+Our vision-based experiments are hosted in the `vision_exp` directory, which is based off [this Procgen Pytorch implementation](https://github.com/joonleesky/train-procgen-pytorch). These experiments allow exploration of [Procgen](https://openai.com/index/procgen-benchmark/) and [Atari](https://www.gymlibrary.dev/environments/atari/index.html) environments using **PACE**.
 
 To initiate an experiment with the default configuration in the Procgen "starpilot" environment, use the command below. You can easily switch to other game environments, like Atari, by altering the `--exp_name="atari"` parameter:
 
