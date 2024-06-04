@@ -17,12 +17,11 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exp_name',         type=str, default = 'procgen', help='experiment name, either procgen or atari')
     parser.add_argument('--env_name',         type=str, default = 'starpilot', help='environment ID')
-    parser.add_argument('--param_name',       type=str, default = 'easy-200', help='hyper-parameter ID')
     parser.add_argument('--seed',             type=int, default = random.randint(0,9999), help='Random generator seed')
     parser.add_argument('--log_level',        type=int, default = int(5), help='[10,20,30,40]')
     parser.add_argument('--optimizer',        type=str, default = 'pace', help='optimizer to use')
     parser.add_argument('--env_seed',         type=int, default = int(20), help='Environment')
-    parser.add_argument('--level_steps',      type=int, default = int(1000000), help='Number of steps per task')
+    parser.add_argument('--level_steps',      type=int, default = int(2000000), help='Number of steps per task')
     parser.add_argument('--replay_ratio',     type=int, default = int(1000), help='Number of steps per update')
     parser.add_argument('--max_levels',       type=int, default = int(45), help='Number of distribution shifts')
     parser.add_argument('--storage_r',        type=int, default = int(1), help='s1 or s2')
@@ -33,7 +32,6 @@ if __name__=='__main__':
     env_name = args.env_name
     start_level = args.env_seed
     num_levels = args.max_levels
-    param_name = args.param_name
     seed = args.seed
     log_level = args.log_level
     optimizer = args.optimizer
