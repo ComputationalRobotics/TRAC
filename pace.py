@@ -5,7 +5,7 @@ import torch
 import matplotlib.pyplot as plt
 import torch
 
-# We depend on Erfi function, but python.special currently has no implementation.
+# We depend on Erfi function, but torch.special currently has no implementation.
 # We instead modify and rely on https://github.com/redsnic/torch_erf
 
 def polyval(x,coeffs):
