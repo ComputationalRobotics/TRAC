@@ -298,9 +298,9 @@ src: url("./fonts/Avenir_Book.ttf");
 						<br>
 						<a href="https://github.com/ComputationalRobotics/PACE?tab=readme-ov-file" target="_blank" class="link-pill">
 							<i style="padding-right:2px;font-size:23px" class="fab fa-github" aria-hidden="true"></i>
-							Code &amp; Experiments
+							Experiments 
 
-						</a>
+					  </a>
 						<br>
 					</center>
 				</td>
@@ -311,6 +311,17 @@ src: url("./fonts/Avenir_Book.ttf");
 						<a href="https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing" target="_blank" class="link-pill">
 							<img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/colab.png" aria-hidden="true">
 							Colab
+
+						</a>
+						<br>
+					</center>
+				</td>
+				<td align="center" width="200px">
+					<center>
+						<br>
+						<a href="https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing" target="_blank" class="link-pill">
+							<img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/python.png" aria-hidden="true">
+							Pypi
 
 						</a>
 						<br>
@@ -396,42 +407,24 @@ src: url("./fonts/Avenir_Book.ttf");
     </center>
 	<p><img class="rounded" src="./assets/procgen_web.png" width="900px"></p>
     <br />
-    <p><img class="rounded" src="./assets/opt_vis.png" width="800px"></p>
-
-    <br />
-    <p>
-        Combining our proposed methods above, we get a consistent improvement in various VQ-based tasks, including generative modeling and image classification. The figure below is generated using MaskGIT* framework for CelebA. OPT refers to both alternating
-        optimization + synchronized commitment loss. Refer to the main paper for additional results, including image classification.
-    </p>
-    <br />
-
-    <p>
-        <center><img class="rounded" src="./assets/maskgit_fid.png" width="300px"><img class="rounded" src="./assets/maskgit_rfid.png" width="300px" /></center>
-    </p>
-    <p>
-        (*Note: MaskGIT was trained without perceptual and discriminative loss to reduce training and memory overhead.)
-    </p>
-
-    <br>
     <hr>
     <center>
-        <h2> Try our PyTorch code </h2>
+        <h2> Try <strong>TRAC</strong> in PyTorch with <em>one line </em></h2>
     </center>
 
     <p>
-        <center style="background: #fff3b0;"> For full examples using <b>VQTorch</b> with AutoEncoders and classification models see <a href="https://github.com/minyoungg/vqtorch/tree/main/examples">here</a>. </center>
+        <center style="background: #fff3b0;"> For full examples using <b>TRAC</b> with PPO in lifelong RL see <a href="https://github.com/ComputationalRobotics/TRAC/tree/main">here</a>. </center>
     </p>
 
-    Install our code <a href="https://github.com/minyoungg/vqtorch"> [<b>github</b>] </a>
-    <pre><code>
-      <font color="00509d">>>></font> <font color="1a936f">git clone</font> https://github.com/minyoungg/vqtorch
-      <font color="00509d">>>></font> <font color="1a936f">cd</font> vqtorch
-      <font color="00509d">>>></font> <font color="1a936f">pip install</font> -e .
+    Install TRAC <a href="https://pypi.org/project/trac-optimizer/"> [<b>Pypi</b>] </a>
+    
+<pre><code>
+      <font color="00509d"></font> <font color="1a936f">pip install</font> trac-optimizer
       </code></pre> Integrate to your existing PyTorch code base.
     <pre><code>
-        <font color="ef476f">import</font> torch
-        <font color="ef476f">from</font> vqtorch.nn <font color="ef476f">import</font> VectorQuant
-
+        <font color="ef476f">import</font> torch.optim
+        <font color="ef476f">from</font> trac_optimizer <font color="ef476f">import</font> start_trac
+		
         <font color=7F8C8D># create VQ layer </font>
         vq_layer = <font color="118ab2">VectorQuant</font>(
                         <font color=#F39C12>feature_size</font>=32,    <font color=7F8C8D># feature dimension corresponding to the vectors</font>
@@ -464,12 +457,10 @@ src: url("./fonts/Avenir_Book.ttf");
     <center>
         <h2> Acknowledgements </h2>
     </center>
-    <p> Minyoung Huh would like to thank his lab members for helpful feedbacks. Minyoung Huh was funded by ONR MURI grant N00014-22-1-2740.
-        <!-- Brian Cheung is funded by an MIT BCS Fellowship. -->
-        <br><br>
+    <p> We thank <a href="https://ashok.cutkosky.com">Ashok Cutkosky</a> for insightful discussions on online optimization in nonstationary settings. We are grateful to <a href="https://david-abel.github.io">David Abel</a> for his thoughtful insights on loss of plasticity in relation to lifelong reinforcement learning. We appreciate <a href="https://kzhang66.github.io">Kaiqing Zhang</a> and <a href="https://huyangsh.github.io">Yang Hu</a> for their comments on theoretical and nonstationary RL. This project is partially funded by <a href="https://research.fas.harvard.edu/deans-competitive-fund-promising-scholarship#:~:text=This%20program%20is%20open%20to,not%20eligible%20for%20this%20program.">Harvard University Dean's Competitive Fund for Promising Scholarship. </a><br>
+<br>
 
         <br><br>
-        <a href="https://richzhang.github.io/colorization/">Website template edited from Colorful Colorization</a>.
     </p>
     <br>
 
