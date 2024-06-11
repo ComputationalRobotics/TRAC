@@ -1,0 +1,492 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/academicons.min.css"/>
+	<script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+    <!--
+  <script src="./resources/jsapi" type="text/javascript"></script>
+  <script type="text/javascript" async>google.load("jquery", "1.3.2");</script>
+ -->
+
+    <!-- @font-face {
+font-family: 'Avenir Book';
+src: url("./fonts/Avenir_Book.ttf");
+/* File to be stored at your site */
+} -->
+
+    <style type="text/css">
+        body {
+            font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1200px;
+        }
+		
+		#headerLogo {
+			position: absolute;
+			top: 10px; /* Adjust this value to position the logo from the top */
+			right: 10px; /* Adjust based on your layout's needs */
+			height: 50px; /* Set this according to your logo's size */
+		}
+		* {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+        
+        h1 {
+            font-weight: 300;
+			font-size: 24px;
+        }
+        
+        h2 {
+            font-weight: 300;
+        }
+        
+        p {
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        code {
+            font-size: 0.8rem;
+            margin: 0 0.2rem;
+            padding: 0.5rem 0.8rem;
+            white-space: nowrap;
+            background: #efefef;
+            border: 1px solid #d3d3d3;
+            color: #000000;
+            border-radius: 3px;
+        }
+        
+        pre>code {
+            display: block;
+            white-space: pre;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+        
+        pre.prettyprint>code {
+            border: none;
+        }
+		  .algorithm { font-family: monospace; white-space: pre; }
+		  .algorithm caption { font-weight: bold; }
+		  .algorithm code { font-weight: normal; }
+        .header {
+			width: 100%; /* Takes the full width of its parent, up to 800px */
+			text-align: right; /* Aligns the content (logo) to the right */
+			padding: 10px 0; /* Adds some vertical padding for spacing */
+		}
+
+		.header-logo {
+			height: 50px; /* Adjust based on your logo's size */
+		}
+        .disclaimerbox {
+            background-color: #eee;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            padding: 20px;
+        }
+        .link-pill {
+			background-color: #000000; /* Black background for the pill */
+			color: white !important; /* This is crucial to override the default link color */
+			text-decoration: none; /* Remove underline from links */
+			padding: 10px 20px;
+			border-radius: 20px; /* Rounded corners for pill shape */
+			font-size: 15px;
+			display: inline-flex;
+			align-items: center; /* Align the icon and text vertically */
+			margin: 5px;
+			transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+		}
+
+		.link-pill:hover {
+			background-color: #150E12; /* Dark reddish background on hover */
+			color: #FF0000 !important; /* Reddish color for text and icon on hover */
+		} 
+
+		.link-pill i, .link-pill img {
+			margin-right: 10px; /* Space between icon and text */
+			color: white; /* Ensure icons inherit the color from the parent */
+		}
+
+        video.header-vid {
+            height: 140px;
+            border: 1px solid black;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+        
+        img.header-img {
+            height: 140px;
+            border: 1px solid black;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+        
+        img.rounded {
+            border: 0px solid #eeeeee;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+        
+        a:link,
+        a:visited {
+            color: #1367a7;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #208799;
+        }
+        
+        td.dl-link {
+            height: 160px;
+            text-align: center;
+            font-size: 22px;
+        }
+        
+        .layered-paper-big {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0, 0, 0, 0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0, 0, 0, 0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0, 0, 0, 0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The fifth layer shadow */
+            margin-left: 10px;
+            margin-right: 45px;
+        }
+        
+        .layered-paper {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The third layer shadow */
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-right: 30px;
+            margin-bottom: 5px;
+        }
+        
+        .vert-cent {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        }
+    </style>
+<title>FastTRAC</title>
+</head>
+
+<body>
+<div class="header">
+        <img src="assets/seas_logo.png" alt="Logo" class="header-logo">
+    </div>
+<br>
+	<center>
+		<span style="font-size:32px"><strong>Fast </strong>
+		<color-profile><strong>TRAC</strong></color-profile>
+		<strong> &nbsp;🏎️</strong><br>
+		<span style="font-size: 28px;">A Parameter-free Optimizer for <br>
+		Lifelong Reinforcement Learning</span></span><br><br><br>
+	</center>
+
+    <table align="center" width="800px">
+        <tbody>
+            <tr>
+                <td align="center" width="160px">
+                    <center>
+                        <span style="font-size:20px"><a href="http://minyounghuh.com">Aneesh Muppidi</a><sup>1, 2</sup></span>
+                    </center>
+                </td>
+                <td align="center" width="160px">
+                    <center>
+                        <span style="font-size:20px"><a href="https://zhiyuzz.github.io">Zhiyu Zhang</a><sup>2</sup></span>
+                    </center>
+                </td>
+                <td align="center" width="160px">
+                    <center>
+                        <span style="font-size:20px"><a href="https://hankyang.seas.harvard.edu">Heng Yang</a><sup>2&nbsp;</sup></span>
+                    </center>
+                </td>
+
+          </tr>
+
+        </tbody>
+    </table><br>
+
+    <table align="center" width="700px">
+        <tbody>
+            <tr>
+                <td align="center" width="50px">
+                    <center>
+                        <span style="font-size:18px"></span>
+                    </center>
+                </td>
+                <td align="center" width="250px">
+                    <center>
+                        <span style="font-size:18px"><sup>1</sup>Harvard College</span>
+                    </center>
+                </td>
+              <td align="center" width="250px">
+                    <center>
+                        <span style="font-size:18px"><sup>2</sup>Harvard SEAS</span>
+                    </center>
+                </td>
+                <td align="center" width="50px">
+                    <center>
+                        <span style="font-size:16px"></span>
+                    </center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table align="center" width="700px">
+        <tbody>
+            <tr>
+                <td align="center" width="200px">
+					<center>
+						<br>
+						<a href="https://arxiv.org/abs/2405.16642" target="_blank" class="link-pill">
+							<i style="padding-right:2px; font-size:23px" class="ai ai-arxiv" aria-hidden="true"></i> Arxiv
+						</a>
+						<br>
+					</center>
+				</td>
+
+				<td align="center" width="200px">
+					<center>
+						<br>
+						<a href="https://github.com/ComputationalRobotics/PACE?tab=readme-ov-file" target="_blank" class="link-pill">
+							<i style="padding-right:2px;font-size:23px" class="fab fa-github" aria-hidden="true"></i>
+							Code &amp; Experiments
+
+						</a>
+						<br>
+					</center>
+				</td>
+
+				<td align="center" width="200px">
+					<center>
+						<br>
+						<a href="https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing" target="_blank" class="link-pill">
+							<img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/colab.png" aria-hidden="true">
+							Colab
+
+						</a>
+						<br>
+					</center>
+				</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <hr>
+    <center>
+        <h2>
+        <strong> Abstract </strong> </h2>
+    </center>
+	<p>
+	      A key challenge in lifelong reinforcement learning (RL) is the loss of plasticity, where previous learning progress hinders an agent's adaptation to new tasks. While regularization and resetting can help, they require precise hyperparameter selection at the outset and environment-dependent adjustments. Building on the principled theory of online convex optimization, we present a parameter-free optimizer for lifelong RL, called \(\textbf{TRAC}\), which requires no tuning or prior knowledge about the distribution shifts. Extensive experiments on Procgen, Atari, and Gym Control environments show that \(\textbf{TRAC}\) works surprisingly well—mitigating loss of plasticity and rapidly adapting to challenging distribution shifts—despite the underlying optimization problem being nonconvex and nonstationary.</left>
+
+	</p>
+    <p>
+    </p>
+
+    <p style="background: #fff3b0;">
+      <center style="background: #fff3b0;">
+       Try <strong>TRAC</strong> in your lifelong or continual experiments with just <strong><a href="https://github.com/ComputationalRobotics/PACE">one line change.&nbsp;</a></strong> <a href="https://github.com/minyoungg/vqtorch"><strong>&nbsp;</strong></a>
+      </center>
+    </p>
+
+    <br>
+
+    <hr>
+    <center>
+        <h2> Lifelong RL suffers from <strong>Loss of Plasticity</strong></h2>
+    </center>
+    <br/>
+
+    <p>
+    In lifelong RL, a learning agent must continually acquire new knowledge to handle the nonstationarity of the environment. At first glance, there appears to be an obvious solution:&nbsp; &nbsp;given a policy gradient oracle, the agent could just keep running gradient descent nonstop. However, recent experiments have demonstrated an intriguing behavior called&nbsp;<strong>loss of plasticity <a href="https://arxiv.org/abs/2108.06325">[1</a>,<a href="https://arxiv.org/abs/2204.09560">2</a>,<a href="https://arxiv.org/abs/2303.07507">3</a>,<a href="https://arxiv.org/abs/2302.12902">4</a>]:</strong>&nbsp;despite persistent gradient steps, such an agent can gradually lose its responsiveness to incoming observations.</p>
+	<br />
+	<div style="text-align: center;">
+	  <img class="rounded" src="./assets/starpilot_rewards_animation.gif" style="width: 350px; display: inline-block;">
+	  <img class="rounded" src="./assets/control_rewards_animation.gif" style="width: 265px; display: inline-block;">
+	</div>
+	<br />
+	
+    <hr>
+	<center>
+        <h2> Suprisingly, in this non-convex setting, online <em><strong>convex</strong></em> optimization can help.</h2>
+    </center>
+			
+    <br />
+	<p>
+	  \(\textbf{TRAC}\) combines three parameter-free Online Convex Optimization (OCO) techniques: 
+	  <a href="https://arxiv.org/abs/1802.06293" target="_blank">direction-magnitude decomposition</a>, 
+	  <a href="https://arxiv.org/abs/1902.09003" target="_blank">additive aggregation</a>, and the 
+	  <a href="https://arxiv.org/pdf/2402.02720" target="_blank">\(\text{erfi}\) potential function</a>.
+	  The algorithm starts with a base optimizer, \(\text{Base}\), and adjusts a scaling parameter, \( S_{t+1} \), in an online data-dependent manner. 
+	  This parameter affects the update of \(\theta_{t+1}\) as shown:
+</p>
+
+    \[
+    \theta_{t+1} = S_{t+1} \cdot \theta_{t+1}^\text{base} + (1 - S_{t+1}) \theta_\text{ref}.
+    \]
+    </p>
+    <p>The decision rule for the tuner uses the \(\text{erfi}\) function to calculate \( s_{t+1} \) as follows:</p>
+    <p>
+    \[
+    s_{t+1} = \frac{\epsilon}{(\text{erfi})(1/\sqrt{2})} (\text{erfi})\left(\frac{\sigma_t}{\sqrt{2v_t} + \epsilon}\right),
+    \]
+    </p>
+    <p>This rule applies the \(\text{erfi}\) function, an imaginary error function, to tune the scaling parameter based on the input \(\sigma_t\) and the running variance \(v_t\). Aggregating the outputs of tuners with different discount factors allows \(\textbf{TRAC}\) to adaptively scale based on algorithm performance without manual tuning.</p>
+   
+	
+    <br />
+	<center>
+		<img class="rounded" src="./assets/trac.gif" width="200px">
+	</center>
+    <br />
+    <hr>
+	<center>
+        <h2>Experimental Results</h2>
+    </center>
+	<p><img class="rounded" src="./assets/procgen_web.png" width="900px"></p>
+    <br />
+    <p><img class="rounded" src="./assets/opt_vis.png" width="800px"></p>
+
+    <br />
+    <p>
+        Combining our proposed methods above, we get a consistent improvement in various VQ-based tasks, including generative modeling and image classification. The figure below is generated using MaskGIT* framework for CelebA. OPT refers to both alternating
+        optimization + synchronized commitment loss. Refer to the main paper for additional results, including image classification.
+    </p>
+    <br />
+
+    <p>
+        <center><img class="rounded" src="./assets/maskgit_fid.png" width="300px"><img class="rounded" src="./assets/maskgit_rfid.png" width="300px" /></center>
+    </p>
+    <p>
+        (*Note: MaskGIT was trained without perceptual and discriminative loss to reduce training and memory overhead.)
+    </p>
+
+    <br>
+    <hr>
+    <center>
+        <h2> Try our PyTorch code </h2>
+    </center>
+
+    <p>
+        <center style="background: #fff3b0;"> For full examples using <b>VQTorch</b> with AutoEncoders and classification models see <a href="https://github.com/minyoungg/vqtorch/tree/main/examples">here</a>. </center>
+    </p>
+
+    Install our code <a href="https://github.com/minyoungg/vqtorch"> [<b>github</b>] </a>
+    <pre><code>
+      <font color="00509d">>>></font> <font color="1a936f">git clone</font> https://github.com/minyoungg/vqtorch
+      <font color="00509d">>>></font> <font color="1a936f">cd</font> vqtorch
+      <font color="00509d">>>></font> <font color="1a936f">pip install</font> -e .
+      </code></pre> Integrate to your existing PyTorch code base.
+    <pre><code>
+        <font color="ef476f">import</font> torch
+        <font color="ef476f">from</font> vqtorch.nn <font color="ef476f">import</font> VectorQuant
+
+        <font color=7F8C8D># create VQ layer </font>
+        vq_layer = <font color="118ab2">VectorQuant</font>(
+                        <font color=#F39C12>feature_size</font>=32,    <font color=7F8C8D># feature dimension corresponding to the vectors</font>
+                        <font color=#F39C12>num_codes=</font>1024,     <font color=7F8C8D># number of codebook vectors</font>
+                        <font color=#F39C12>beta</font>=0.98,          <font color=7F8C8D># (default: 0.95) commitment trade-off</font>
+                        <font color=#F39C12>kmeans_init</font>=True,   <font color=7F8C8D># (default: False) whether to use kmeans++ init</font>
+                        <font color=#F39C12>norm</font>=None,          <font color=7F8C8D># (default: None) normalization for input vector</font>
+                        <font color=#F39C12>cb_norm</font>=None,       <font color=7F8C8D># (default: None) normalization for codebook vectors</font>
+                        <font color=#F39C12>affine_lr</font>=10.0,     <font color=7F8C8D># (default: 0.0) lr scale for affine parameters</font>
+                        <font color=#F39C12>sync_nu</font>=0.2,        <font color=7F8C8D># (default: 0.0) codebook synchronization contribution</font>
+                        <font color=#F39C12>replace_freq</font>=20,    <font color=7F8C8D># (default: 0) frequency to replace dead codes</font>
+                        <font color=#F39C12>dim</font>=-1              <font color=7F8C8D># (default: -1) dimension to be quantized</font>
+                        ).cuda()
+
+        <font color=7F8C8D># when using `kmeans_init`, a warmup is recommended </font>
+        <font color="AF7AC5">with</font> torch.no_grad():
+            z_e = torch.randn(1, 32, 32, 3).cuda()
+            vq_layer(z_e)
+
+        <font color=7F8C8D># standard forward pass </font>
+        z_q, vq_dict = vq_layer(z_e) # equivalent to above
+
+        <font color=2E86C1>print</font>(z_q.shape)
+        <font color="00509d">>>></font> (1, 64, 64, 32)
+
+    </code></pre>
+
+    <br>
+    <hr>
+    <center>
+        <h2> Acknowledgements </h2>
+    </center>
+    <p> Minyoung Huh would like to thank his lab members for helpful feedbacks. Minyoung Huh was funded by ONR MURI grant N00014-22-1-2740.
+        <!-- Brian Cheung is funded by an MIT BCS Fellowship. -->
+        <br><br>
+
+        <br><br>
+        <a href="https://richzhang.github.io/colorization/">Website template edited from Colorful Colorization</a>.
+    </p>
+    <br>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70157890-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-70157890-3');
+    </script>
+
+
+</body>
+
+</html>
