@@ -3,7 +3,7 @@ from common.env.procgen_wrappers import *
 import torch
 import numpy as np
 from procgen import ProcgenEnv
-from pace import start_pace
+from trac import start_trac
 
 
 class PPO(BaseAgent):
@@ -118,7 +118,7 @@ class PPO(BaseAgent):
                    'Loss/entropy': np.mean(entropy_loss_list)}
         return summary
         
-    def train_seq(self, env_generator, optimizer_log_file_path, exp_name, total_steps_per_level=1000000, optimizer="pace", storage_r=True, warmstart=0):
+    def train_seq(self, env_generator, optimizer_log_file_path, exp_name, total_steps_per_level=1000000, optimizer="TRAC", storage_r=True, warmstart=0):
         steps_per_optimization = self.n_steps
         hidden_state = np.zeros((self.n_envs, self.storage.hidden_state_size))
         done = np.zeros(self.n_envs)
@@ -137,8 +137,8 @@ class PPO(BaseAgent):
                 obs = np.expand_dims(np.transpose(obs[0], (2, 0, 1)), axis=0)
             while level_steps < total_steps_per_level:
                 if global_step == warmstart:
-                    if optimizer == "pace":
-                        self.optimizer = start_pace(log_file=optimizer_log_file_path,Base=torch.optim.Adam)(self.policy.parameters(), lr=self.learning_rate)
+                    if optimizer == "TRAC":
+                        self.optimizer = start_trac(log_file=optimizer_log_file_path,Base=torch.optim.Adam)(self.policy.parameters(), lr=self.learning_rate)
                     else:
                         self.optimizer = torch.optim.Adam(self.policy.parameters(), lr=self.learning_rate, eps=1e-5)
                 obs = self.env.reset()

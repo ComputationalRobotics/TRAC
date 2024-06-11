@@ -1,9 +1,6 @@
-import logging
 from typing import Tuple, Any, Callable, Dict
 import torch
-import torch
-import matplotlib.pyplot as plt
-import torch
+
 
 # We depend on Erfi function, but torch.special currently has no implementation.
 # We instead modify and rely on https://github.com/redsnic/torch_erf
@@ -120,8 +117,8 @@ def _init_state(
         betas: Tuple[float],
         s_prev: float,
         eps: float):
-    if '_pace' not in optimizer.state:
-        optimizer.state['_pace'] = {
+    if '_trac' not in optimizer.state:
+        optimizer.state['_trac'] = {
             'betas': torch.tensor(betas),
             's_prev': torch.tensor(s_prev),
             'eps': eps,
@@ -143,7 +140,7 @@ def _init_reference(
     '''
     for group in optimizer.param_groups:
         for p in group['params']:
-            optimizer.state['_pace'][p] = {
+            optimizer.state['_trac'][p] = {
                 'ref': theta_ref[p].clone(),
             }
             
@@ -157,7 +154,7 @@ def _step(
         ):
     '''
     Args:
-        optimizer: pace optimizer instance
+        optimizer: trac optimizer instance
         base_step: The "step" function of the base optimizer
         betas: list of beta values.
         s_init: initial scale value.
@@ -186,7 +183,7 @@ def _step(
     torch.set_grad_enabled(False)
     
     _init_state(optimizer, updates, betas, s_prev, eps)
-    pace_state = optimizer.state['_pace']
+    trac_state = optimizer.state['_trac']
 
 
     for group in optimizer.param_groups:
@@ -194,9 +191,9 @@ def _step(
             if grads[p] is None:
                 continue
 
-            theta_ref = pace_state[p]['ref']
+            theta_ref = trac_state[p]['ref']
 
-            deltas[p] = (updates[p] - theta_ref)/(torch.sum(pace_state['s']) + pace_state['eps'])
+            deltas[p] = (updates[p] - theta_ref)/(torch.sum(trac_state['s']) + trac_state['eps'])
 
             updates[p].copy_(p-updates[p])
 
@@ -219,20 +216,20 @@ def _step(
 
     device = h.device
 
-    for key in pace_state:
+    for key in trac_state:
         try:
-            if pace_state[key].device != device:
-                pace_state[key] = pace_state[key].to(device)
+            if trac_state[key].device != device:
+                trac_state[key] = trac_state[key].to(device)
         except:
             pass
 
-    s = pace_state['s']
-    s_prev = pace_state['s_prev']
-    betas = pace_state['betas']
-    eps = pace_state['eps']
-    variance = pace_state['variance'] 
-    sigma = pace_state['sigma']                                 
-    pace_state['iter_count'] += 1
+    s = trac_state['s']
+    s_prev = trac_state['s_prev']
+    betas = trac_state['betas']
+    eps = trac_state['eps']
+    variance = trac_state['variance'] 
+    sigma = trac_state['sigma']                                 
+    trac_state['iter_count'] += 1
 
     variance.mul_(
         betas**2).add_(torch.square(h))
@@ -249,7 +246,7 @@ def _step(
             if grads[p] is None:
                 continue
 
-            theta_ref = pace_state[p]['ref']
+            theta_ref = trac_state[p]['ref']
             delta = deltas[p]
             s_sum = torch.sum(s)
 
@@ -257,7 +254,7 @@ def _step(
             p.copy_(theta_ref + delta * scale)
 
     log_data = {
-        'iter_count': pace_state['iter_count'],
+        'iter_count': trac_state['iter_count'],
         's': torch.sum(s).item(),
     }
 
@@ -265,13 +262,13 @@ def _step(
     return result, log_data
 
 
-class pace:
+class trac:
     pass
 
-def is_pace(opt):
-    return isinstance(opt, pace)
+def is_trac(opt):
+    return isinstance(opt, trac)
 
-def start_pace(
+def start_trac(
         log_file,
         Base: Any,
         betas: Tuple[float] = (0.9, 0.99, 0.999, 0.9999,
@@ -280,9 +277,9 @@ def start_pace(
         eps: float = 1e-8,
         ):
 
-    class PACEOPT(Base, pace):
+    class TRACOPT(Base, trac):
         '''
-        Wraps the base opt with PACE.
+        Wraps the base opt with trac.
         
         '''
 
@@ -292,6 +289,6 @@ def start_pace(
                 f.write(str(log_data) + '\n')
             return result
 
-    PACEOPT.__name__ += Base.__name__
+    TRACOPT.__name__ += Base.__name__
 
-    return PACEOPT
+    return TRACOPT

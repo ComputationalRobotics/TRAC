@@ -21,7 +21,7 @@ if __name__=='__main__':
     parser.add_argument('--env_name',         type=str, default = 'starpilot', help='environment ID')
     parser.add_argument('--seed',             type=int, default = random.randint(0,9999), help='Random generator seed')
     parser.add_argument('--log_level',        type=int, default = int(5), help='[10,20,30,40]')
-    parser.add_argument('--optimizer',        type=str, default = 'pace', help='optimizer to use')
+    parser.add_argument('--optimizer',        type=str, default = 'TRAC', help='optimizer to use')
     parser.add_argument('--env_seed',         type=int, default = int(20), help='Environment')
     parser.add_argument('--level_steps',      type=int, default = int(2000000), help='Number of steps per task')
     parser.add_argument('--replay_ratio',     type=int, default = int(1000), help='Number of steps per update')
