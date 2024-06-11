@@ -1,5 +1,6 @@
 # TRAC: Adaptive Parameter-free Optimization ⚡️
-![Static Badge](https://img.shields.io/badge/project%20page-green?logo=Github&color=purple&link=http%3A%2F%2Fcomputationalrobotics.seas.harvard.edu%2FTRAC%2F)[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing)![Static Badge](https://img.shields.io/badge/trac__optimizer-optimizer?logo=python&label=pip%20install&labelColor=white&color=gray&link=https%3A%2F%2Fpypi.org%2Fproject%2Ftrac-optimizer%2F)
+[![Open In Colab](https://img.shields.io/badge/project%20page-purple?logo=GitHub&logoColor=white
+)](https://computationalrobotics.seas.harvard.edu/TRAC/)[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing)[![Pypi](https://img.shields.io/badge/trac__optimizer-optimizer?logo=python&label=pip%20install&labelColor=white&color=gray&link=https%3A%2F%2Fpypi.org%2Fproject%2Ftrac-optimizer%2F)](https://pypi.org/project/trac-optimizer/)
 
 
 
