@@ -1,5 +1,7 @@
 # TRAC: Adaptive Parameter-free Optimization ⚡️ 🏎️💨
-[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing)
+[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing)![Static Badge](https://img.shields.io/badge/trac__optimizer-optimizer?logo=python&label=pip%20install&labelColor=white&color=black&link=https%3A%2F%2Fpypi.org%2Fproject%2Ftrac-optimizer%2F)
+
+
 
 This repository is the official implementation of the **TRAC** optimizer in ***Fast TRAC: A Parameter-Free Optimizer for Lifelong Reinforcement Learning***.
 
