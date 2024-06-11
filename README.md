@@ -1,5 +1,5 @@
 # TRAC: Adaptive Parameter-free Optimization ⚡️
-[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing)![Static Badge](https://img.shields.io/badge/trac__optimizer-optimizer?logo=python&label=pip%20install&labelColor=white&color=black&link=https%3A%2F%2Fpypi.org%2Fproject%2Ftrac-optimizer%2F)
+![Static Badge](https://img.shields.io/badge/project%20page-green?logo=Github&color=purple&link=http%3A%2F%2Fcomputationalrobotics.seas.harvard.edu%2FTRAC%2F)[![arXiv](https://img.shields.io/badge/arXiv-2405.16642-b31b1b.svg)](https://arxiv.org/abs/2405.16642) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing)![Static Badge](https://img.shields.io/badge/trac__optimizer-optimizer?logo=python&label=pip%20install&labelColor=white&color=gray&link=https%3A%2F%2Fpypi.org%2Fproject%2Ftrac-optimizer%2F)
 
 
 
@@ -14,6 +14,9 @@ Well, we suggest you get on the fast **TRAC** 🏎️💨.
 
 ## Implement with only one line change.
 Like other [meta-tuners](https://openreview.net/pdf?id=uhKtQMn21D), TRAC can work with any of your continual, fine-tuning, or lifelong experiments with just one line change.
+```python
+pip install trac-optimizer
+```
 
 ```python
 from trac import start_trac
