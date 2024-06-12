@@ -65,16 +65,24 @@ src: url("./fonts/Avenir_Book.ttf");
             font-weight: 300;
             line-height: 1.4;
         }
-        
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .flex-item {
+            flex: 1; /* Ensures each flex item takes half the space of the flex container */
+        }
+        .code-title {
+            text-align: center;
+            margin: 10px 0;
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap; /* Wraps text within the pre element */
+        }
         code {
-            font-size: 0.8rem;
-            margin: 0 0.2rem;
-            padding: 0.5rem 0.8rem;
-            white-space: nowrap;
-            background: #efefef;
-            border: 1px solid #d3d3d3;
-            color: #000000;
-            border-radius: 3px;
+            display: block;
         }
         
         pre>code {
@@ -96,6 +104,29 @@ src: url("./fonts/Avenir_Book.ttf");
 			text-align: right; /* Aligns the content (logo) to the right */
 			padding: 10px 0; /* Adds some vertical padding for spacing */
 		}
+		.install {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block; /* Adjust this if you need the container width to fit the content */
+        }
+        .install pre {
+            margin: 0; /* Removes default margin from pre elements */
+            text-align: left; /* Ensures text within the pre element is left-aligned */
+        }
+		
+        .code-container {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            text-align: left; /* Ensures text inside the container is left-aligned */
+        }
+        .code-container.installation {
+            display: inline-block; /* Only as wide as the content */
+            margin-right: auto; /* Aligns the container to the left */
+            margin-left: 0; /* Ensures no extra space on the left */
+        }
 
 		.header-logo {
 			height: 50px; /* Adjust based on your logo's size */
@@ -287,7 +318,7 @@ src: url("./fonts/Avenir_Book.ttf");
 					<center>
 						<br>
 						<a href="https://arxiv.org/abs/2405.16642" target="_blank" class="link-pill">
-							<i style="padding-right:2px; font-size:23px" class="ai ai-arxiv" aria-hidden="true"></i> Arxiv
+							<i style="padding-right:2px; font-size:23px" class="ai ai-arxiv" aria-hidden="true"></i> ArXiv
 						</a>
 						<br>
 					</center>
@@ -405,7 +436,7 @@ src: url("./fonts/Avenir_Book.ttf");
 	<center>
         <h2>Experimental Results</h2>
     </center>
-	<p><img class="rounded" src="./assets/procgen_web.png" width="900px"></p>
+	<p><img class="rounded" src="./assets/combined_plots.png" width="900px"></p>
     <br />
     <hr>
     <center>
@@ -416,43 +447,44 @@ src: url("./fonts/Avenir_Book.ttf");
         <center style="background: #fff3b0;"> For full examples using <b>TRAC</b> with PPO in lifelong RL see <a href="https://github.com/ComputationalRobotics/TRAC/tree/main">here</a>. </center>
     </p>
 
-    Install TRAC <a href="https://pypi.org/project/trac-optimizer/"> [<b>Pypi</b>] </a>
-    
-<pre><code>
-      <font color="00509d"></font> <font color="1a936f">pip install</font> trac-optimizer
-      </code></pre> Integrate to your existing PyTorch code base.
-    <pre><code>
-        <font color="ef476f">import</font> torch.optim
-        <font color="ef476f">from</font> trac_optimizer <font color="ef476f">import</font> start_trac
-		
-        <font color=7F8C8D># create VQ layer </font>
-        vq_layer = <font color="118ab2">VectorQuant</font>(
-                        <font color=#F39C12>feature_size</font>=32,    <font color=7F8C8D># feature dimension corresponding to the vectors</font>
-                        <font color=#F39C12>num_codes=</font>1024,     <font color=7F8C8D># number of codebook vectors</font>
-                        <font color=#F39C12>beta</font>=0.98,          <font color=7F8C8D># (default: 0.95) commitment trade-off</font>
-                        <font color=#F39C12>kmeans_init</font>=True,   <font color=7F8C8D># (default: False) whether to use kmeans++ init</font>
-                        <font color=#F39C12>norm</font>=None,          <font color=7F8C8D># (default: None) normalization for input vector</font>
-                        <font color=#F39C12>cb_norm</font>=None,       <font color=7F8C8D># (default: None) normalization for codebook vectors</font>
-                        <font color=#F39C12>affine_lr</font>=10.0,     <font color=7F8C8D># (default: 0.0) lr scale for affine parameters</font>
-                        <font color=#F39C12>sync_nu</font>=0.2,        <font color=7F8C8D># (default: 0.0) codebook synchronization contribution</font>
-                        <font color=#F39C12>replace_freq</font>=20,    <font color=7F8C8D># (default: 0) frequency to replace dead codes</font>
-                        <font color=#F39C12>dim</font>=-1              <font color=7F8C8D># (default: -1) dimension to be quantized</font>
-                        ).cuda()
+	<br />
+	<center>
+    <h3 First Install <strong>Install TRAC</strong> <a href="https://pypi.org/project/trac-optimizer/"> [<b>Pypi</b>] </a> </h3>
+	<div class="install">
+        <pre><code class="language-shell"><font color="#1a936f">pip install</font> trac-optimizer</code></pre>
+    </div>
+	</center>
+	
 
-        <font color=7F8C8D># when using `kmeans_init`, a warmup is recommended </font>
-        <font color="AF7AC5">with</font> torch.no_grad():
-            z_e = torch.randn(1, 32, 32, 3).cuda()
-            vq_layer(z_e)
+	<br />
+        <div class="flex-item">
+            <h3 class="code-title">Original</h3>
+            <div class="code-container">
+                <pre><code class="language-python">
+<font color="#ef476f">from</font> torch.optim <font color="#ef476f">import</font> Adam
+# original code
+optimizer = Adam(model.parameters(), lr=<font color="#F39C12">0.01</font>)
+<font color="#7F8C8D"># your typical optimizer methods</font>
+optimizer.<font color="#2E86C1">zero_grad</font>() 
+optimizer.<font color="#2E86C1">step</font>()
+                </code></pre>
+            </div>
+        </div>
+    <div class="flex-item">
+            <h3 class="code-title">With TRAC</h3>
+            <div class="code-container">
+                <pre><code class="language-python">
+<font color="#ef476f">from</font> trac_optimizer <font color="#ef476f">import</font> start_trac
+# with TRAC
+optimizer = start_trac(log_file='logs/trac.text', Adam)(model.parameters(), lr=<font color="#F39C12">0.01</font>)
+<font color="#7F8C8D"># using your optimizer methods exactly as you did before (feel free to use others as well)</font>
+optimizer.<font color="#2E86C1">zero_grad</font>() 
+optimizer.<font color="#2E86C1">step</font>()
+                </code></pre>
+            </div>
+</div>
 
-        <font color=7F8C8D># standard forward pass </font>
-        z_q, vq_dict = vq_layer(z_e) # equivalent to above
-
-        <font color=2E86C1>print</font>(z_q.shape)
-        <font color="00509d">>>></font> (1, 64, 64, 32)
-
-    </code></pre>
-
-    <br>
+<br>
     <hr>
     <center>
         <h2> Acknowledgements </h2>
