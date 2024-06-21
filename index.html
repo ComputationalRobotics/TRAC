@@ -108,7 +108,6 @@ src: url("./fonts/Avenir_Book.ttf");
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
-            display: inline-block; /* Adjust this if you need the container width to fit the content */
         }
         .install pre {
             margin: 0; /* Removes default margin from pre elements */
@@ -256,7 +255,7 @@ src: url("./fonts/Avenir_Book.ttf");
 	<center>
 		<span style="font-size:32px"><strong>Fast </strong>
 		<color-profile><strong>TRAC</strong></color-profile>
-		<strong> &nbsp;🏎️</strong><br>
+		<strong> &nbsp;🏎</strong><br>
 		<span style="font-size: 28px;">A Parameter-free Optimizer for <br>
 		Lifelong Reinforcement Learning</span></span><br><br><br>
 	</center>
@@ -370,7 +369,7 @@ src: url("./fonts/Avenir_Book.ttf");
         <strong> Abstract </strong> </h2>
     </center>
 	<p>
-	      A key challenge in lifelong reinforcement learning (RL) is the loss of plasticity, where previous learning progress hinders an agent's adaptation to new tasks. While regularization and resetting can help, they require precise hyperparameter selection at the outset and environment-dependent adjustments. Building on the principled theory of online convex optimization, we present a parameter-free optimizer for lifelong RL, called \(\textbf{TRAC}\), which requires no tuning or prior knowledge about the distribution shifts. Extensive experiments on Procgen, Atari, and Gym Control environments show that \(\textbf{TRAC}\) works surprisingly well—mitigating loss of plasticity and rapidly adapting to challenging distribution shifts—despite the underlying optimization problem being nonconvex and nonstationary.</left>
+	      A key challenge in lifelong reinforcement learning (RL) is the loss of plasticity, where previous learning progress hinders an agent's adaptation to new tasks. While regularization and resetting can help, they require precise hyperparameter selection at the outset and environment-dependent adjustments. Building on the principled theory of online convex optimization, we present a parameter-free optimizer for lifelong RL, called <strong>TRAC</strong>, which requires no tuning or prior knowledge about the distribution shifts. Extensive experiments on Procgen, Atari, and Gym Control environments show that <strong>TRAC</strong> works surprisingly well—mitigating loss of plasticity and rapidly adapting to challenging distribution shifts—despite the underlying optimization problem being nonconvex and nonstationary.</left>
 
 	</p>
     <p>
@@ -406,7 +405,7 @@ src: url("./fonts/Avenir_Book.ttf");
 			
     <br />
 	<p>
-	  \(\textbf{TRAC}\) combines three parameter-free Online Convex Optimization (OCO) techniques: 
+	  <strong>TRAC</strong> combines three parameter-free Online Convex Optimization (OCO) techniques: 
 	  <a href="https://arxiv.org/abs/1802.06293" target="_blank">direction-magnitude decomposition</a>, 
 	  <a href="https://arxiv.org/abs/1902.09003" target="_blank">additive aggregation</a>, and the 
 	  <a href="https://arxiv.org/pdf/2402.02720" target="_blank">\(\text{erfi}\) potential function</a>.
@@ -424,12 +423,12 @@ src: url("./fonts/Avenir_Book.ttf");
     s_{t+1} = \frac{\epsilon}{(\text{erfi})(1/\sqrt{2})} (\text{erfi})\left(\frac{\sigma_t}{\sqrt{2v_t} + \epsilon}\right),
     \]
     </p>
-    <p>This rule applies the \(\text{erfi}\) function, an imaginary error function, to tune the scaling parameter based on the input \(\sigma_t\) and the running variance \(v_t\). Aggregating the outputs of tuners with different discount factors allows \(\textbf{TRAC}\) to adaptively scale based on algorithm performance without manual tuning.</p>
+    <p>This rule applies the \(\text{erfi}\) function, an imaginary error function, to tune the scaling parameter based on the input \(\sigma_t\) and the running variance \(v_t\). Aggregating the outputs of tuners with different discount factors allows <strong>TRAC</strong> to adaptively scale based on algorithm performance without manual tuning.</p>
    
 	
     <br />
 	<center>
-		<img class="rounded" src="./assets/trac.gif" width="200px">
+		<img class="rounded" src="./assets/fastTRAC_draft1.gif" width="600px">
 	</center>
     <br />
     <hr>
