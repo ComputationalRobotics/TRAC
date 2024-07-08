@@ -1,383 +1,288 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="./css/academicons.min.css"/>
-	<script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        },
-        svg: {
-          fontCache: 'global'
-        }
-      };
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/academicons.min.css" />
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
     </script>
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-
-    <!--
-  <script src="./resources/jsapi" type="text/javascript"></script>
-  <script type="text/javascript" async>google.load("jquery", "1.3.2");</script>
- -->
-
-    <!-- @font-face {
-font-family: 'Avenir Book';
-src: url("./fonts/Avenir_Book.ttf");
-/* File to be stored at your site */
-} -->
-
-    <style type="text/css">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
         body {
             font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
             font-weight: 300;
             font-size: 14px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 900px;
-        }
-		
-		#headerLogo {
-			position: absolute;
-			top: 10px; /* Adjust this value to position the logo from the top */
-			right: 10px; /* Adjust based on your layout's needs */
-			height: 50px; /* Set this according to your logo's size */
-		}
-		* {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-        
-        h1 {
-            font-weight: 300;
-			font-size: 24px;
-        }
-        
-        h2 {
-            font-weight: 300;
-        }
-        
-        p {
-            font-weight: 300;
-            line-height: 1.4;
-        }
-        .flex-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .flex-item {
-            flex: 1; /* Ensures each flex item takes half the space of the flex container */
-        }
-        .code-title {
-            text-align: center;
-            margin: 10px 0;
-        }
-        pre {
-            margin: 0;
-            white-space: pre-wrap; /* Wraps text within the pre element */
-        }
-        code {
-            display: block;
-        }
-        
-        pre>code {
-            display: block;
-            white-space: pre;
-            line-height: 1.5;
-            padding: 0;
-            margin: 0;
-        }
-        
-        pre.prettyprint>code {
-            border: none;
-        }
-		  .algorithm { font-family: monospace; white-space: pre; }
-		  .algorithm caption { font-weight: bold; }
-		  .algorithm code { font-weight: normal; }
-        .header {
-			width: 100%; /* Takes the full width of its parent, up to 800px */
-			text-align: right; /* Aligns the content (logo) to the right */
-			padding: 10px 0; /* Adds some vertical padding for spacing */
-		}
-		.install {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .install pre {
-            margin: 0; /* Removes default margin from pre elements */
-            text-align: left; /* Ensures text within the pre element is left-aligned */
-        }
-		
-        .code-container {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-            text-align: left; /* Ensures text inside the container is left-aligned */
-        }
-        .code-container.installation {
-            display: inline-block; /* Only as wide as the content */
-            margin-right: auto; /* Aligns the container to the left */
-            margin-left: 0; /* Ensures no extra space on the left */
+            margin: 0 auto;
+            max-width: 67%;
+            padding: 0 15px;
         }
 
 		.header-logo {
-			height: 50px; /* Adjust based on your logo's size */
+			height: 7vh; /* Adjusts with the viewport height */
 		}
-        .disclaimerbox {
-            background-color: #eee;
-            border: 1px solid #eeeeee;
-            border-radius: 10px;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-            padding: 20px;
-        }
-        .link-pill {
-			background-color: #000000; /* Black background for the pill */
-			color: white !important; /* This is crucial to override the default link color */
-			text-decoration: none; /* Remove underline from links */
-			padding: 10px 20px;
-			border-radius: 20px; /* Rounded corners for pill shape */
-			font-size: 15px;
+
+		.flex-container {
+			display: flex;
+			justify-content: space-between;
+			gap: 2%;
+			flex-wrap: wrap;
+		}
+
+		.flex-item {
+			flex: 1;
+			min-width: 20%;
+		}
+
+		.code-title {
+			text-align: center;
+			margin: 1em 0;
+		}
+
+		pre {
+			margin: 0;
+			white-space: pre-wrap;
+		}
+
+		code {
+			display: block;
+		}
+
+		.header {
+			width: 100%;
+			text-align: right;
+			padding: 1em 0;
+		}
+
+		.install,
+		.code-container {
+			background-color: #f8f9fa;
+			padding: 1em;
+			border-radius: 0.5em;
+			text-align: left;
+		}
+
+		.disclaimerbox {
+			background-color: #eee;
+			border: 1px solid #eeeeee;
+			border-radius: 0.5em;
+			padding: 2em;
+		}
+
+		.link-pill {
+			background-color: #000000;
+			color: white !important;
+			text-decoration: none;
+			padding: 1em 2em;
+			border-radius: 2em;
+			font-size: 1em;
 			display: inline-flex;
-			align-items: center; /* Align the icon and text vertically */
-			margin: 5px;
-			transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+			align-items: center;
+			margin: 0.5em;
+			transition: background-color 0.3s, color 0.3s;
 		}
 
 		.link-pill:hover {
-			background-color: #150E12; /* Dark reddish background on hover */
-			color: #FF0000 !important; /* Reddish color for text and icon on hover */
-		} 
-
-		.link-pill i, .link-pill img {
-			margin-right: 10px; /* Space between icon and text */
-			color: white; /* Ensure icons inherit the color from the parent */
+			background-color: #150E12;
+			color: #FF0000 !important;
 		}
 
-        video.header-vid {
-            height: 140px;
-            border: 1px solid black;
-            border-radius: 10px;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-        }
-        
-        img.header-img {
-            height: 140px;
-            border: 1px solid black;
-            border-radius: 10px;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-        }
-        
-        img.rounded {
-            border: 0px solid #eeeeee;
-            border-radius: 10px;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-        }
-        
-        a:link,
-        a:visited {
-            color: #1367a7;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            color: #208799;
-        }
-        
-        td.dl-link {
-            height: 160px;
-            text-align: center;
-            font-size: 22px;
-        }
-        
-        .layered-paper-big {
-            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */
-            5px 5px 0 0px #fff, /* The second layer */
-            5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */
-            10px 10px 0 0px #fff, /* The third layer */
-            10px 10px 1px 1px rgba(0, 0, 0, 0.35), /* The third layer shadow */
-            15px 15px 0 0px #fff, /* The fourth layer */
-            15px 15px 1px 1px rgba(0, 0, 0, 0.35), /* The fourth layer shadow */
-            20px 20px 0 0px #fff, /* The fifth layer */
-            20px 20px 1px 1px rgba(0, 0, 0, 0.35), /* The fifth layer shadow */
-            25px 25px 0 0px #fff, /* The fifth layer */
-            25px 25px 1px 1px rgba(0, 0, 0, 0.35);
-            /* The fifth layer shadow */
-            margin-left: 10px;
-            margin-right: 45px;
-        }
-        
-        .layered-paper {
-            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */
-            5px 5px 0 0px #fff, /* The second layer */
-            5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */
-            10px 10px 0 0px #fff, /* The third layer */
-            10px 10px 1px 1px rgba(0, 0, 0, 0.35);
-            /* The third layer shadow */
-            margin-top: 5px;
-            margin-left: 10px;
-            margin-right: 30px;
-            margin-bottom: 5px;
-        }
-        
-        .vert-cent {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-        }
+		.link-pill i,
+		.link-pill img {
+			margin-right: 1em;
+			color: white;
+		}
+
+		video.header-vid,
+		img.header-img {
+			height: 20vh;
+			border: 1px solid black;
+			border-radius: 0.5em;
+		}
+
+		img.rounded {
+			border: 0;
+			border-radius: 0.5em;
+		}
+
+		a:link,
+		a:visited {
+			color: #1367a7;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #208799;
+		}
+
+		hr {
+			border: 0;
+			height: 0.1em;
+			background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+		}
+
+		table {
+			width: 78%;
+			max-width: 100%; /* Ensures the table doesn't exceed 80% of the container's width */
+			margin: auto;
+		}
+
+		td {
+			padding: 1em;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.install pre {
+			margin: 0;
+		}
+
+		.code-container {
+			margin-top: 1em;
+		}
+
+		.section-spacing {
+			margin-bottom: 0.01em;
+		}
+
+		.inner-spacing {
+			margin-bottom: 0.1em;
+		}
+
     </style>
-<title>FastTRAC</title>
+    <title>FastTRAC</title>
 </head>
 
 <body>
+    <div class="header">
+        <img src="assets/seas_logo.png" alt="Logo" class="header-logo">
+    </div>
+    <div class="section-spacing">
+        <center>
+            <span style="font-size:32px"><strong>Fast </strong>
+                <color-profile><strong>TRAC</strong></color-profile>
+                <strong> &nbsp;🏎</strong><br>
+                <span style="font-size: 28px;">A Parameter-free Optimizer for <br> Lifelong Reinforcement Learning</span>
+            </span>
+        </center>
+    </div>
 
-<br>
-	<center>
-		<span style="font-size:32px"><strong>Fast </strong>
-		<color-profile><strong>TRAC</strong></color-profile>
-		<strong> &nbsp;🏎</strong><br>
-		<span style="font-size: 28px;">A Parameter-free Optimizer for <br>
-		Lifelong Reinforcement Learning</span></span><br><br><br>
-	</center>
+    <div class="section-spacing">
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <center>
+                            <span style="font-size:20px"><a href="http://minyounghuh.com">Aneesh </a><a href="https://scholar.google.com/citations?user=OAWT85oAAAAJ&hl=en">Muppid</a><a>i</a><sup>1, 2</sup></span>
+                        </center>
+                    </td>
+                    <td align="center">
+                        <center>
+                            <span style="font-size:20px"><a href="https://zhiyuzz.github.io">Zhiyu Zhang</a><sup>2</sup></span>
+                        </center>
+                    </td>
+                    <td align="center">
+                        <center>
+                            <span style="font-size:20px"><a href="https://hankyang.seas.harvard.edu">Heng Yang</a><sup>2&nbsp;</sup></span>
+                        </center>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table align="center" width="800px">
-        <tbody>
-            <tr>
-                <td align="center" width="160px">
-                    <center>
-                        <span style="font-size:20px"><a href="http://minyounghuh.com">Aneesh </a><a href="https://scholar.google.com/citations?user=OAWT85oAAAAJ&hl=en">Muppid</a><a>i</a><sup>1, 2</sup></span>
-                    </center>
-                </td>
-                <td align="center" width="160px">
-                    <center>
-                        <span style="font-size:20px"><a href="https://zhiyuzz.github.io">Zhiyu Zhang</a><sup>2</sup></span>
-                    </center>
-                </td>
-                <td align="center" width="160px">
-                    <center>
-                        <span style="font-size:20px"><a href="https://hankyang.seas.harvard.edu">Heng Yang</a><sup>2&nbsp;</sup></span>
-                    </center>
-                </td>
+    <div class="section-spacing">
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <center>
+                            <span style="font-size:18px"><sup>1</sup>Harvard College</span>
+                        </center>
+                    </td>
+                    <td align="center">
+                        <center>
+                            <span style="font-size:18px"><sup>2</sup>Harvard SEAS</span>
+                        </center>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-          </tr>
+    <div class="section-spacing">
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <center>
+                            <a href="https://arxiv.org/abs/2405.16642" target="_blank" class="link-pill">
+                                <i style="padding-right:2px; font-size:23px" class="ai ai-arxiv" aria-hidden="true"></i> ArXiv
+                            </a>
+                        </center>
+                    </td>
+                    <td align="center">
+                        <center>
+                            <a href="https://github.com/ComputationalRobotics/PACE?tab=readme-ov-file" target="_blank" class="link-pill">
+                                <i style="padding-right:2px;font-size:23px" class="fab fa-github" aria-hidden="true"></i>
+                                Experiments
+                            </a>
+                        </center>
+                    </td>
+                    <td align="center">
+                        <center>
+                            <a href="https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing" target="_blank" class="link-pill">
+                                <img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/colab.png" aria-hidden="true">
+                                Colab
+                            </a>
+                        </center>
+                    </td>
+                    <td align="center">
+                        <center>
+                            <a href="https://pypi.org/project/trac-optimizer/" target="_blank" class="link-pill">
+                                <img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/python.png" aria-hidden="true">
+                                Pypi
+                            </a>
+                        </center>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-        </tbody>
-    </table><br>
+</body>
 
-    <table align="center" width="700px">
-        <tbody>
-            <tr>
-                <td align="center" width="50px">
-                    <center>
-                        <span style="font-size:18px"></span>
-                    </center>
-                </td>
-                <td align="center" width="250px">
-                    <center>
-                        <span style="font-size:18px"><sup>1</sup>Harvard College</span>
-                    </center>
-                </td>
-              <td align="center" width="250px">
-                    <center>
-                        <span style="font-size:18px"><sup>2</sup>Harvard SEAS</span>
-                    </center>
-                </td>
-                <td align="center" width="50px">
-                    <center>
-                        <span style="font-size:16px"></span>
-                    </center>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table align="center" width="700px">
-        <tbody>
-            <tr>
-                <td align="center" width="200px">
-					<center>
-						<br>
-						<a href="https://arxiv.org/abs/2405.16642" target="_blank" class="link-pill">
-							<i style="padding-right:2px; font-size:23px" class="ai ai-arxiv" aria-hidden="true"></i> ArXiv
-						</a>
-						<br>
-					</center>
-				</td>
+</html>
 
-				<td align="center" width="200px">
-					<center>
-						<br>
-						<a href="https://github.com/ComputationalRobotics/PACE?tab=readme-ov-file" target="_blank" class="link-pill">
-							<i style="padding-right:2px;font-size:23px" class="fab fa-github" aria-hidden="true"></i>
-							Experiments 
-
-					  </a>
-						<br>
-					</center>
-				</td>
-
-				<td align="center" width="200px">
-					<center>
-						<br>
-						<a href="https://colab.research.google.com/drive/1c5OxMa5fiSVnl5w6J7flrjNUteUkp6BV?usp=sharing" target="_blank" class="link-pill">
-							<img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/colab.png" aria-hidden="true">
-							Colab
-
-						</a>
-						<br>
-					</center>
-				</td>
-				<td align="center" width="200px">
-					<center>
-						<br>
-						<a href="https://pypi.org/project/trac-optimizer/" target="_blank" class="link-pill">
-							<img style="padding-bottom:3px;padding-right:2px;height:18px" src="assets/python.png" aria-hidden="true">
-							Pypi
-
-						</a>
-						<br>
-					</center>
-				</td>
-
-
-            </tr>
-        </tbody>
-    </table>
-    <br />
     <hr>
     <center>
         <h2>
-        <strong> Abstract </strong> </h2>
+            <strong> Abstract </strong>
+        </h2>
     </center>
-	<p>
-	      A key challenge in lifelong reinforcement learning (RL) is the loss of plasticity, where previous learning progress hinders an agent's adaptation to new tasks. While regularization and resetting can help, they require precise hyperparameter selection at the outset and environment-dependent adjustments. Building on the principled theory of online convex optimization, we present a parameter-free optimizer for lifelong RL, called <strong>TRAC</strong>, which requires no tuning or prior knowledge about the distribution shifts. Extensive experiments on Procgen, Atari, and Gym Control environments show that <strong>TRAC</strong> works surprisingly well—mitigating loss of plasticity and rapidly adapting to challenging distribution shifts—despite the underlying optimization problem being nonconvex and nonstationary.</left>
-
-	</p>
+    <p>
+        A key challenge in lifelong reinforcement learning (RL) is the loss of plasticity, where previous learning progress hinders an agent's adaptation to new tasks. While regularization and resetting can help, they require precise hyperparameter selection at the outset and environment-dependent adjustments. Building on the principled theory of online convex optimization, we present a parameter-free optimizer for lifelong RL, called <strong>TRAC</strong>, which requires no tuning or prior knowledge about the distribution shifts. Extensive experiments on Procgen, Atari, and Gym Control environments show that <strong>TRAC</strong> works surprisingly well—mitigating loss of plasticity and rapidly adapting to challenging distribution shifts—despite the underlying optimization problem being nonconvex and nonstationary.</left>
+    </p>
     <p>
     </p>
 
     <p style="background: #fff3b0;">
-      <center style="background: #fff3b0;">
-       Try <strong>TRAC</strong> in your lifelong or continual experiments with just <strong><a href="https://github.com/ComputationalRobotics/PACE">one line change.&nbsp;</a></strong> <a href="https://github.com/minyoungg/vqtorch"><strong>&nbsp;</strong></a>
-      </center>
+        <center style="background: #fff3b0;">
+            Try <strong>TRAC</strong> in your lifelong or continual experiments with just <strong><a href="https://github.com/ComputationalRobotics/PACE">one line change.&nbsp;</a></strong> <a href="https://github.com/minyoungg/vqtorch"><strong>&nbsp;</strong></a>
+        </center>
     </p>
 
     <br>
@@ -386,31 +291,31 @@ src: url("./fonts/Avenir_Book.ttf");
     <center>
         <h2> Lifelong RL suffers from <strong>Loss of Plasticity</strong></h2>
     </center>
-    <br/>
+    <br />
 
     <p>
-    In lifelong RL, a learning agent must continually acquire new knowledge to handle the nonstationarity of the environment. At first glance, there appears to be an obvious solution:&nbsp; &nbsp;given a policy gradient oracle, the agent could just keep running gradient descent nonstop. However, recent experiments have demonstrated an intriguing behavior called&nbsp;<strong>loss of plasticity <a href="https://arxiv.org/abs/2108.06325">[1</a>,<a href="https://arxiv.org/abs/2204.09560">2</a>,<a href="https://arxiv.org/abs/2303.07507">3</a>,<a href="https://arxiv.org/abs/2302.12902">4</a>]:</strong>&nbsp;despite persistent gradient steps, such an agent can gradually lose its responsiveness to incoming observations.</p>
-	<br />
-	<div style="text-align: center;">
-	  <img class="rounded" src="./assets/starpilot_rewards_animation.gif" style="width: 350px; display: inline-block;">
-	  <img class="rounded" src="./assets/control_rewards_animation.gif" style="width: 265px; display: inline-block;">
-	</div>
-	<br />
-	
-    <hr>
-	<center>
-        <h2> Suprisingly, in this non-convex setting, online <em><strong>convex</strong></em> optimization can help.</h2>
-    </center>
-			
+        In lifelong RL, a learning agent must continually acquire new knowledge to handle the nonstationarity of the environment. At first glance, there appears to be an obvious solution:&nbsp; &nbsp;given a policy gradient oracle, the agent could just keep running gradient descent nonstop. However, recent experiments have demonstrated an intriguing behavior called&nbsp;<strong>loss of plasticity <a href="https://arxiv.org/abs/2108.06325">[1</a>,<a href="https://arxiv.org/abs/2204.09560">2</a>,<a href="https://arxiv.org/abs/2303.07507">3</a>,<a href="https://arxiv.org/abs/2302.12902">4</a>]:</strong>&nbsp;despite persistent gradient steps, such an agent can gradually lose its responsiveness to incoming observations.</p>
     <br />
-	<p>
-	  <strong>TRAC</strong> combines three parameter-free Online Convex Optimization (OCO) techniques: 
-	  <a href="https://arxiv.org/abs/1802.06293" target="_blank">direction-magnitude decomposition</a>, 
-	  <a href="https://arxiv.org/abs/1902.09003" target="_blank">additive aggregation</a>, and the 
-	  <a href="https://arxiv.org/pdf/2402.02720" target="_blank">\(\text{erfi}\) potential function</a>.
-	  The algorithm starts with a base optimizer, \(\text{Base}\), and adjusts a scaling parameter, \( S_{t+1} \), in an online data-dependent manner. 
-	  This parameter affects the update of \(\theta_{t+1}\) as shown:
-</p>
+    <div style="text-align: center;">
+        <img class="rounded" src="./assets/starpilot_rewards_animation.gif" style="width: 350px; display: inline-block;">
+        <img class="rounded" src="./assets/control_rewards_animation.gif" style="width: 265px; display: inline-block;">
+    </div>
+    <br />
+
+    <hr>
+    <center>
+        <h2> Surprisingly, in this non-convex setting, online <em><strong>convex</strong></em> optimization can help.</h2>
+    </center>
+
+    <br />
+    <p>
+        <strong>TRAC</strong> combines three parameter-free Online Convex Optimization (OCO) techniques:
+        <a href="https://arxiv.org/abs/1802.06293" target="_blank">direction-magnitude decomposition</a>,
+        <a href="https://arxiv.org/abs/1902.09003" target="_blank">additive aggregation</a>, and the
+        <a href="https://arxiv.org/pdf/2402.02720" target="_blank">\(\text{erfi}\) potential function</a>.
+        The algorithm starts with a base optimizer, \(\text{Base}\), and adjusts a scaling parameter, \( S_{t+1} \), in an online data-dependent manner.
+        This parameter affects the update of \(\theta_{t+1}\) as shown:
+    </p>
 
     \[
     \theta_{t+1} = S_{t+1} \cdot \theta_{t+1}^\text{base} + (1 - S_{t+1}) \theta_\text{ref}.
@@ -418,23 +323,22 @@ src: url("./fonts/Avenir_Book.ttf");
     </p>
     <p>The decision rule for the tuner uses the \(\text{erfi}\) function to calculate \( s_{t+1} \) as follows:</p>
     <p>
-    \[
+        \[
     s_{t+1} = \frac{\epsilon}{(\text{erfi})(1/\sqrt{2})} (\text{erfi})\left(\frac{\sigma_t}{\sqrt{2v_t} + \epsilon}\right),
     \]
     </p>
     <p>This rule applies the \(\text{erfi}\) function, an imaginary error function, to tune the scaling parameter based on the input \(\sigma_t\) and the running variance \(v_t\). Aggregating the outputs of tuners with different discount factors allows <strong>TRAC</strong> to adaptively scale based on algorithm performance without manual tuning.</p>
-   
-	
+
     <br />
-	<center>
-		<img class="rounded" src="./assets/fastTRAC.gif" width="600px">
-	</center>
+    <center>
+        <img class="rounded" src="./assets/fastTRAC.gif" width="600px">
+    </center>
     <br />
     <hr>
-	<center>
+    <center>
         <h2>Experimental Results</h2>
     </center>
-	<p><img class="rounded" src="./assets/combined_plots.png" width="900px"></p>
+    <p><img class="rounded" src="./assets/combined_plots.png" width="100%"></p>
     <br />
     <hr>
     <center>
@@ -445,56 +349,54 @@ src: url("./fonts/Avenir_Book.ttf");
         <center style="background: #fff3b0;"> For full examples using <b>TRAC</b> with PPO in lifelong RL see <a href="https://github.com/ComputationalRobotics/TRAC/tree/main">here</a>. </center>
     </p>
 
-	<br />
-	<center>
-    <h3 First Install <strong>Install TRAC</strong> <a href="https://pypi.org/project/trac-optimizer/"> [<b>Pypi</b>] </a> </h3>
-	<div class="install">
-        <pre><code class="language-shell"><font color="#1a936f">pip install</font> trac-optimizer</code></pre>
-    </div>
-	</center>
-	
+    <br />
+    <center>
+        <h3 First Install <strong>Install TRAC</strong> <a href="https://pypi.org/project/trac-optimizer/"> [<b>Pypi</b>] </a> </h3>
+        <div class="install">
+            <pre><code class="language-shell"><font color="#1a936f">pip install</font> trac-optimizer</code></pre>
+        </div>
+    </center>
 
-	<br />
-        <div class="flex-item">
-            <h3 class="code-title">Original</h3>
-            <div class="code-container">
-                <pre><code class="language-python">
+
+    <br />
+    <div class="flex-item">
+        <h3 class="code-title">Original</h3>
+        <div class="code-container">
+            <pre><code class="language-python">
 <font color="#ef476f">from</font> torch.optim <font color="#ef476f">import</font> Adam
 # original code
 optimizer = Adam(model.parameters(), lr=<font color="#F39C12">0.01</font>)
 <font color="#7F8C8D"># your typical optimizer methods</font>
 optimizer.<font color="#2E86C1">zero_grad</font>() 
 optimizer.<font color="#2E86C1">step</font>()
-                </code></pre>
-            </div>
+            </code></pre>
         </div>
+    </div>
     <div class="flex-item">
-            <h3 class="code-title">With TRAC</h3>
-            <div class="code-container">
-                <pre><code class="language-python">
+        <h3 class="code-title">With TRAC</h3>
+        <div class="code-container">
+            <pre><code class="language-python">
 <font color="#ef476f">from</font> trac_optimizer <font color="#ef476f">import</font> start_trac
 # with TRAC
 optimizer = start_trac(log_file='logs/trac.text', Adam)(model.parameters(), lr=<font color="#F39C12">0.01</font>)
 <font color="#7F8C8D"># using your optimizer methods exactly as you did before (feel free to use others as well)</font>
 optimizer.<font color="#2E86C1">zero_grad</font>() 
 optimizer.<font color="#2E86C1">step</font>()
-                </code></pre>
-            </div>
-</div>
+            </code></pre>
+        </div>
+    </div>
 
-<br>
+    <br>
     <hr>
     <center>
         <h2> Acknowledgements </h2>
     </center>
     <p> We thank <a href="https://ashok.cutkosky.com">Ashok Cutkosky</a> for insightful discussions on online optimization in nonstationary settings. We are grateful to <a href="https://david-abel.github.io">David Abel</a> for his thoughtful insights on loss of plasticity in relation to lifelong reinforcement learning. We appreciate <a href="https://kzhang66.github.io">Kaiqing Zhang</a> and <a href="https://huyangsh.github.io">Yang Hu</a> for their comments on theoretical and nonstationary RL. This project is partially funded by <a href="https://research.fas.harvard.edu/deans-competitive-fund-promising-scholarship#:~:text=This%20program%20is%20open%20to,not%20eligible%20for%20this%20program.">Harvard University Dean's Competitive Fund for Promising Scholarship. </a><br>
-<br>
-
+        <br>
         <br><br>
     </p>
     <br>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70157890-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -506,7 +408,6 @@ optimizer.<font color="#2E86C1">step</font>()
 
         gtag('config', 'UA-70157890-3');
     </script>
-
 
 </body>
 
