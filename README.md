@@ -22,7 +22,7 @@ pip install trac-optimizer
 ```
 **PyTorch**
 ```python
-from trac import start_trac
+from trac_optimizer import start_trac
 # original optimizer
 optimizer = torch.optim.Adam
 lr = 0.001
