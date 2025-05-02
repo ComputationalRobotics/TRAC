@@ -13,6 +13,7 @@ Well, we suggest you get on the fast **TRAC** 🏎️💨.
 
 **TRAC** is a parameter-free optimizer for continual environments inspired by [online convex optimization](https://arxiv.org/abs/1912.13213) and uses [discounted adaptive online prediction](https://arxiv.org/abs/2402.02720).
 
+**Update [08/20/24]**: _TRAC Torch supports saving and loading trac states_
 **Update [08/20/24]**: _TRAC is now supported for JAX and Optax!_
 
 ## Implement with only one line change with both PyTorch/JAX!
