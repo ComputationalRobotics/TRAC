@@ -1,6 +1,6 @@
 from typing import Tuple, Any, Callable, Dict
 import torch
-
+from torch.optim.optimizer import Optimizer
 
 # We depend on Erfi function, but torch.special currently has no implementation.
 # We instead modify and rely on https://github.com/redsnic/torch_erf
@@ -292,3 +292,84 @@ def start_trac(
     TRACOPT.__name__ += Base.__name__
 
     return TRACOPT
+def save_trac(
+    optimizer: Optimizer,
+    filepath: str
+):
+    """
+    Save the full TRAC optimizer state (base optimizer + all TRAC fields).
+    """
+    state = optimizer.state
+    if '_trac' not in state:
+        raise ValueError("save_trac: no '_trac' in optimizer.state; did you step even once?")
+
+    trac_state = state['_trac']
+
+    # --- 1) common TRAC scalars under string keys ---
+    common = {}
+    for k, v in trac_state.items():
+        if not isinstance(k, str):
+            continue
+        # clone any tensors, leave other types as-is
+        if isinstance(v, torch.Tensor):
+            common[k] = v.clone().cpu()
+        else:
+            common[k] = v
+
+    # --- 2) per-parameter `ref` snapshots, in param order ---
+    refs = []
+    for group in optimizer.param_groups:
+        for p in group['params']:
+            ref = trac_state[p]['ref']
+            refs.append(ref.clone().cpu())
+
+    # --- 3) base optimizer state_dict (Adam moments, etc) ---
+    optim_sd = optimizer.state_dict()
+
+    torch.save({
+        'optimizer_state_dict': optim_sd,
+        'trac_common': common,
+        'trac_refs': refs,
+    }, filepath)
+
+
+def load_trac(
+    optimizer: Optimizer,
+    filepath: str,
+    map_location: Any = None
+):
+    """
+    Load both the base optimizer state_dict and TRAC fields into a fresh optimizer.
+    """
+    ckpt = torch.load(filepath, map_location=map_location)
+
+    # 1) restore base-optimizer moments, lr, etc.
+    optimizer.load_state_dict(ckpt['optimizer_state_dict'])
+
+    # 2) grab our TRAC slot
+    state = optimizer.state
+    if '_trac' not in state:
+        raise ValueError("load_trac: optimizer has no '_trac'; did you wrap it with start_trac?")
+    trac_state = state['_trac']
+
+    # find device of your model’s parameters
+    device = optimizer.param_groups[0]['params'][0].device
+
+    # 3) restore common TRAC scalars
+    for k, v in ckpt['trac_common'].items():
+        if isinstance(v, torch.Tensor):
+            v = v.to(device)
+        trac_state[k] = v
+
+    # 4) restore each parameter’s `ref`
+    refs = ckpt['trac_refs']
+    idx = 0
+    for group in optimizer.param_groups:
+        for p in group['params']:
+            if p not in trac_state:
+                trac_state[p] = {}
+            trac_state[p]['ref'] = refs[idx].to(p.device)
+            idx += 1
+
+    if idx != len(refs):
+        raise RuntimeError(f"load_trac: mismatch in number of parameters ({idx} vs {len(refs)})")
