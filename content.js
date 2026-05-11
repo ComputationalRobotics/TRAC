@@ -174,8 +174,8 @@ optimizer.step()`,
     },
   ],
   footer: {
-    left: "TRAC project page built from the minimal paper template.",
-    right:
-      '<a href="https://github.com/Aneeshers/research-paper">TRAC project page built from the minimal paper template</a>',
+    left:
+      'This page is built from the <a href="https://aneeshers.github.io/research-paper/">minimal paper template</a>.',
+    right: "",
   },
 };

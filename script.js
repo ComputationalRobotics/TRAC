@@ -257,7 +257,7 @@
   function renderFooter() {
     footer.innerHTML = `
       <p>${data.footer.left}</p>
-      <p>${data.footer.right}</p>
+      ${data.footer.right ? `<p>${data.footer.right}</p>` : ""}
     `;
   }
 
