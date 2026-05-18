@@ -23,14 +23,15 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
 }
 
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Berkeley Mono", monospace;
-  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
   line-height: 1.65;
 }
 
@@ -85,7 +86,7 @@ img {
 h1 {
   max-width: 24ch;
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-size: clamp(32px, 4vw, 50px);
   letter-spacing: -0.02em;
 }
 
@@ -210,7 +211,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-family: "Berkeley Mono", monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   line-height: 1.1;
 }
